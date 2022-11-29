@@ -42,11 +42,16 @@ export const Button = styled.button `
 `
 
 export const TasksWrap = styled.div `
-    margin-top: 50px;
+  margin-top: 50px;
+  display: flex;
+`
+
+export const TaskCol = styled.div `
+  width: 50%;
 `
 
 export const TasksUl = styled.ul `
-    padding: 0;
+  padding: 0;
 `
 
 export const TasksLi = styled.li `

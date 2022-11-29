@@ -7,9 +7,11 @@ const App = ({store}) => {
     const [title, setTitle] = useState('');
 
     const handleForm = (e) => {
-        e.preventDefault();
-        store.newTask(title);
-        setTitle('');
+        if (title) {
+            e.preventDefault();
+            store.newTask(title);
+            setTitle('');
+        }
     }
 
     return (

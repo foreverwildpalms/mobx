@@ -1,13 +1,8 @@
 import {makeAutoObservable} from "mobx"
+import {getData, setData} from "../utils/data";
 
 export class Store {
-    tasks = [
-        // {
-        //     id: 1,
-        //     title: "Task 1",
-        //     finished: false
-        // }
-    ]
+    tasks = getData();
 
     // constructor(title) {
     //     makeObservable(this, {
@@ -18,6 +13,7 @@ export class Store {
     //         newTask: action
     //     })
     // }
+
     constructor() {
         makeAutoObservable(this)
     }
@@ -30,16 +26,14 @@ export class Store {
         return this.tasks.filter(item => !(item.finished))
     }
 
-    // constructor() {
-    //     makeAutoObservable(this)
-    // }
-
     toggle(id) {
         const currTask = this.tasks.find((item) => item.id === id);
 
         if (currTask) {
             currTask.finished = !currTask.finished;
         }
+
+        setData(this.tasks);
     }
 
     newTask(title) {
@@ -49,5 +43,7 @@ export class Store {
             title: title,
             finished: false
         });
+
+        setData(this.tasks);
     }
 }

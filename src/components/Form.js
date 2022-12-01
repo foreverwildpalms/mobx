@@ -3,7 +3,7 @@ import {useState} from "react";
 import { FormWrap, Title, Input, Button } from "../styles";
 
 
-const App = ({store}) => {
+const Form = ({store}) => {
     const [title, setTitle] = useState('');
 
     const handleForm = (e) => {
@@ -25,4 +25,4 @@ const App = ({store}) => {
     );
 }
 
-export default observer(App);
+export default observer(Form);

@@ -4,6 +4,7 @@ import {getData, setData} from "../utils/data";
 export class Store {
     tasks = getData();
 
+    // without makeAutoObservable
     // constructor(title) {
     //     makeObservable(this, {
     //         tasks: observable,

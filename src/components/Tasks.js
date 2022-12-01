@@ -1,6 +1,7 @@
 import React from 'react';
-import {TaskCol, TasksLi, TasksUl, TasksWrap, Title} from "../styles";
+import {TaskCol, TasksUl, TasksWrap, Title} from "../styles";
 import {observer} from "mobx-react-lite";
+import Task from "./Task";
 
 function Tasks({store}) {
     console.log(store);
@@ -12,10 +13,13 @@ function Tasks({store}) {
                 <TasksUl>
                     {store.tasks.filter(item => !item.finished).map(item => {
                         return (
-                            <TasksLi key={item.id}>
-                                <input type="checkbox" value={item.id} checked={item.finished} onChange={() => store.toggle(item.id)} />
-                                {item.title}
-                            </TasksLi>
+                            <Task
+                                id={item.id}
+                                title={item.title}
+                                finished={item.finished}
+                                key={item.id}
+                                onChange={() => store.toggle(item.id)}
+                            />
                         )
                     })}
                 </TasksUl>
@@ -25,10 +29,13 @@ function Tasks({store}) {
                 <TasksUl>
                     {store.tasks.filter(item => item.finished).map(item => {
                         return (
-                            <TasksLi key={item.id}>
-                                <input type="checkbox" value={item.id} checked={item.finished} onChange={() => store.toggle(item.id)} />
-                                {item.title}
-                            </TasksLi>
+                            <Task
+                                id={item.id}
+                                title={item.title}
+                                finished={item.finished}
+                                key={item.id}
+                                onChange={() => store.toggle(item.id)}
+                            />
                         )
                     })}
                 </TasksUl>

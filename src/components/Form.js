@@ -7,7 +7,7 @@ const App = ({store}) => {
     const [title, setTitle] = useState('');
 
     const handleForm = (e) => {
-        if (title) {
+        if (title.trim().length) {
             e.preventDefault();
             store.newTask(title);
             setTitle('');
